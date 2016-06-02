@@ -1,3 +1,6 @@
+// Set global infowindow var
+var infowindow = null;
+
 function getFiveRacks(data) {
   
   // Create Map
@@ -9,7 +12,7 @@ function getFiveRacks(data) {
   var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
   // Add each of five markers
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 120; i++) {
 
     // Get current racks lat and lon
     var lat = data[i].lat;
@@ -18,15 +21,25 @@ function getFiveRacks(data) {
     // Store in LatLng var
     var myLatlng = new google.maps.LatLng(lat,lon);
 
+    // Create info window for datapoint
+    infowindow = new google.maps.InfoWindow();
+
     // Create marker based on LatLng
     var marker = new google.maps.Marker({
         position: myLatlng,
-        title:"Bike Rack"
+        title: data[i].detail_loc
+    });
+
+    // Add event listener to marker to show infowindow, and setContent
+    google.maps.event.addListener(marker, 'click', function () {
+      infowindow.setContent(this.title);
+      infowindow.open(map, this);
     });
 
     // Add marker to map
     marker.setMap(map);
   }
+
 }
 
 function initMap() {
