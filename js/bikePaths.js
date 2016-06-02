@@ -26,14 +26,6 @@ function getFiveRacks(data) {
 
     // Add marker to map
     marker.setMap(map);
-
-    // Create new marker
-    // var marker = new google.maps.Marker({
-    //   position: newLatLon,
-    //   map: map,
-    //   title: "h"
-    // });
-
   }
 }
 
