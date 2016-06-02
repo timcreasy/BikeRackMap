@@ -1,32 +1,31 @@
 function getFiveRacks(data) {
-    
+  
+  // Create Map
   var nashvilleCoords = new google.maps.LatLng(36.1627, -86.7816);
-
-
-  for (var i = 0; i < 5; i++) {
-    // Log location name
-    console.log(data[i].detail_loc);
-    // Latitude var
-    var aLat = data[i].lat;
-    //aLat = Number(aLat).toFixed(3);
-    var aLon = data[i].lon;
-    //aLon = Number(aLon).toFixed(3)
-    //var newLatLon = {lat: aLat, lng: aLon};
-    
-    var myLatlng = new google.maps.LatLng(aLat,aLon);
-
-    var mapOptions = {
+   var mapOptions = {
       zoom: 12,
       center: nashvilleCoords
     }
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+  // Add each of five markers
+  for (var i = 0; i < 5; i++) {
+
+    // Get current racks lat and lon
+    var lat = data[i].lat;
+    var lon = data[i].lon;
+    
+    // Store in LatLng var
+    var myLatlng = new google.maps.LatLng(lat,lon);
+
+    // Create marker based on LatLng
     var marker = new google.maps.Marker({
         position: myLatlng,
-        title:"Hello World!"
+        title:"Bike Rack"
     });
 
-marker.setMap(map);
+    // Add marker to map
+    marker.setMap(map);
 
     // Create new marker
     // var marker = new google.maps.Marker({
