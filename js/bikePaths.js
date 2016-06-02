@@ -1,7 +1,7 @@
 // Set global infowindow var
 var infowindow = null;
 
-function getFiveRacks(data) {
+function mapRackLocations(data) {
   
   // Create Map
   var nashvilleCoords = new google.maps.LatLng(36.1627, -86.7816);
@@ -68,7 +68,7 @@ xmlhttp.onreadystatechange = function() {
     // Parse and store responseText
     var data = JSON.parse(xmlhttp.responseText);
     
-    getFiveRacks(data);
+    mapRackLocations(data);
   }
 };
 
