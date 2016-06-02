@@ -27,7 +27,8 @@ function mapRackLocations(data) {
     // Create marker based on LatLng
     var marker = new google.maps.Marker({
         position: myLatlng,
-        title: data[i].detail_loc
+        title: data[i].detail_loc,
+        icon: '../img/bike.png'
     });
 
     // Add event listener to marker to show infowindow, and setContent
