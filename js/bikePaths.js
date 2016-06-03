@@ -58,7 +58,7 @@ xmlhttp.onreadystatechange = function() {
 };
 
 // Open request
-xmlhttp.open('GET', "https://data.nashville.gov/resource/yjju-hypq.json?$$app_token=0A2X4s8PMWGYIA2Rnt7wql5HZ");
+xmlhttp.open('GET', "https://data.nashville.gov/resource/yjju-hypq.json?$$app_token=[YOUR_APP_TOKEN]");
 
 // Send request
 xmlhttp.send();
